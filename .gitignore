@@ -5,3 +5,4 @@ assets/voices/*.onnx
 assets/voices/*.onnx.json
 output/**/*_draft.mp4
 node_modules/
+output/**/*_preview.mp4
