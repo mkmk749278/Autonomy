@@ -1,0 +1,10 @@
+{
+  "name": "autonomy-studio",
+  "private": true,
+  "description": "Headless 3D frame renderer for the explainer studio",
+  "type": "module",
+  "dependencies": {
+    "playwright-core": "1.56.0",
+    "three": "0.170.0"
+  }
+}

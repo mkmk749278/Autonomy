@@ -1,0 +1,125 @@
+<title>Heart in 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* A single dark "imaging suite" look: the model reads best on a deep ground. */
+  :root {
+    color-scheme: dark;
+    --ground: #0c131a;
+    --ground-2: #1a2632;
+    --ink: #e6edf3;
+    --muted: #93a4b5;
+    --panel: rgba(16, 25, 34, 0.84);
+    --edge: rgba(147, 164, 181, 0.28);
+    --monitor: #6ee7a0;          /* patient-monitor green marks active controls */
+    --o2-rich: #e63946;
+    --o2-poor: #3a7bd5;
+    --sans: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0; overflow: hidden; color: var(--ink); font-family: var(--sans); font-size: 15px;
+    background: radial-gradient(ellipse at 50% 45%, var(--ground-2) 0%, var(--ground) 70%);
+  }
+  #stage { position: fixed; inset: 0; }
+  #stage canvas { display: block; touch-action: none; }
+  #overlay { position: fixed; inset: 0; pointer-events: none; }
+  #lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .label {
+    position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none;
+    padding: 4px 9px; border-radius: 6px; background: var(--panel); border: 1px solid var(--edge);
+    font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+  }
+  .label small { display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 500; color: var(--monitor); }
+
+  .hud {
+    position: fixed; z-index: 2; left: 16px; right: 16px; top: calc(16px + env(safe-area-inset-top, 0px));
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; pointer-events: none;
+  }
+  .card {
+    pointer-events: auto; background: var(--panel); border: 1px solid var(--edge); border-radius: 10px;
+    padding: 12px 14px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .intro { max-width: 340px; display: grid; gap: 6px; }
+  .intro h1 { margin: 0; font-size: 22px; line-height: 1.15; text-wrap: balance; }
+  .intro p { margin: 0; color: var(--muted); line-height: 1.45; }
+  #note { color: var(--ink); line-height: 1.45; min-height: 2.9em; }
+  .data { display: grid; gap: 8px; min-width: 190px; }
+  .data h2 { margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .data dl { margin: 0; display: grid; grid-template-columns: auto auto; gap: 4px 16px; }
+  .data dt { display: flex; align-items: center; gap: 7px; }
+  .data dd { margin: 0; text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .swatch { width: 9px; height: 9px; border-radius: 50%; }
+  .poor { background: var(--o2-poor); } .rich { background: var(--o2-rich); }
+  .credit { font-size: 12px; color: var(--muted); }
+  .credit a { color: var(--muted); }
+
+  #ui {
+    position: fixed; z-index: 2; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; pointer-events: none;
+  }
+  #ui button, #ui .slice {
+    pointer-events: auto; font: inherit; font-weight: 700; color: var(--ink); background: var(--panel);
+    border: 1px solid var(--edge); border-radius: 999px; padding: 9px 16px; min-height: 40px;
+  }
+  #ui button { cursor: pointer; }
+  #ui button[aria-pressed="true"] { border-color: var(--monitor); color: var(--monitor); box-shadow: inset 0 0 0 1px var(--monitor); }
+  #ui button:focus-visible, #ui input:focus-visible { outline: 2px solid var(--monitor); outline-offset: 2px; }
+  #ui .slice { display: flex; align-items: center; gap: 10px; }
+  #ui input[type="range"] { width: 130px; accent-color: var(--monitor); }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .hud { flex-direction: column; }
+    .intro { max-width: none; }
+    .intro p.lede, .data { display: none; }
+    .intro h1 { font-size: 19px; }
+    #ui button, #ui .slice { padding: 8px 12px; font-size: 14px; }
+    #ui input[type="range"] { width: 100px; }
+  }
+</style>
+
+<div id="stage"></div>
+<div id="overlay"><svg id="lines" aria-hidden="true"></svg><div id="labels"></div></div>
+
+<div class="hud">
+  <section class="card intro" aria-label="About this model">
+    <h1>Heart in 3D</h1>
+    <p class="lede">A real human heart from the BodyParts3D anatomical atlas. Turn on X-ray to see the four chambers, or slice it open.</p>
+    <p id="note" aria-live="polite"></p>
+    <p class="credit">Model: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/" target="_blank" rel="noopener">BodyParts3D</a> © DBCLS, CC BY-SA 2.1 JP. Ventricle wall reconstructed. Not medical advice.</p>
+  </section>
+  <section class="card data" aria-label="Chamber volumes in this model">
+    <h2>Chamber volumes in this model</h2>
+    <dl>
+      <dt><span class="swatch poor"></span>Right atrium</dt><dd>85 mL</dd>
+      <dt><span class="swatch poor"></span>Right ventricle</dt><dd>117 mL</dd>
+      <dt><span class="swatch rich"></span>Left atrium</dt><dd>52 mL</dd>
+      <dt><span class="swatch rich"></span>Left ventricle</dt><dd>98 mL</dd>
+    </dl>
+    <h2>Wall thickness</h2>
+    <dl>
+      <dt>Left ventricle</dt><dd>≈10 mm</dd>
+      <dt>Right ventricle</dt><dd>≈4 mm</dd>
+    </dl>
+  </section>
+</div>
+
+<div id="ui" role="toolbar" aria-label="View controls">
+  <button id="t-xray" data-toggle="xray" aria-pressed="false">X-ray</button>
+  <button id="t-flow" data-toggle="flow" aria-pressed="false">Blood flow</button>
+  <button id="t-beat" data-toggle="beat" aria-pressed="true">Heartbeat</button>
+  <button id="t-labels" data-toggle="labels" aria-pressed="true">Labels</button>
+  <label class="slice" for="slice">Slice <input type="range" id="slice" min="0" max="1" step="0.01" value="0"></label>
+</div>
+<div id="loading">Loading the 3D heart…</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="heart3d.js"></script>

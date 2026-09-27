@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heart in 3D</title>
+<style>
+  :root {
+    --bg: #0f1720; --bg2: #1b2632; --ink: #e8eef4; --muted: #8a9bab; --accent: #ffd166;
+    --panel: rgba(20, 30, 40, 0.86); --line: rgba(232, 238, 244, 0.8);
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #stage { position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 50% 42%, #22303e 0%, #121b24 55%, #0b1117 100%); }
+  canvas { display: block; }
+  #overlay { position: fixed; inset: 0; pointer-events: none; }
+  #lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .label { position: absolute; transform: translate(-50%, -50%); white-space: nowrap;
+    padding: 0.35em 0.75em; border-radius: 0.5em; background: var(--panel);
+    border: 1px solid rgba(138, 155, 171, 0.35); font-size: var(--lf, 26px); font-weight: 500; }
+  .label small { display: block; color: var(--accent); font-size: 0.72em; font-weight: 600; }
+  #tag { position: absolute; left: 3.2vh; top: 3.2vh; font-size: 2vh; letter-spacing: 0.08em; color: var(--muted); }
+  #tag b { color: var(--accent); margin-right: 0.8em; }
+  #title { position: absolute; left: 0; right: 0; top: 5.5vh; text-align: center; }
+  #title h1 { margin: 0; font-size: 6.2vh; font-weight: 700; letter-spacing: -0.01em; }
+  #title p { margin: 1vh 0 0; font-size: 2.6vh; color: var(--muted); }
+  #credits { position: absolute; left: 0; right: 0; bottom: 14vh; text-align: center; font-size: 2.3vh; }
+  #credits .big { font-size: 3.4vh; font-weight: 700; margin-bottom: 1.2vh; }
+  #credits .small { color: var(--muted); font-size: 1.8vh; margin-top: 1vh; }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 18px; }
+  /* interactive controls (hidden in render mode) */
+  #ui { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); display: none; gap: 8px;
+    flex-wrap: wrap; justify-content: center; max-width: calc(100% - 32px); pointer-events: auto; }
+  #ui button { font: inherit; font-size: 14px; color: var(--ink); background: var(--panel);
+    border: 1px solid rgba(138, 155, 171, 0.45); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  #ui button[aria-pressed="true"] { background: #2a9d8f; border-color: #2a9d8f; }
+  #ui label { display: flex; align-items: center; gap: 8px; font-size: 14px; background: var(--panel);
+    border-radius: 999px; padding: 6px 14px; border: 1px solid rgba(138, 155, 171, 0.45); }
+  body.interactive .label { --lf: 13px; }
+  @media (max-width: 640px) { #ui button { font-size: 13px; padding: 7px 11px; } }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="overlay"><svg id="lines"></svg><div id="labels"></div><div id="tag"></div><div id="title"></div><div id="credits"></div></div>
+<div id="loading">Loading 3D heart…</div>
+<div id="ui"></div>
+<script>
+  // Local renders load three.js from the build server; published pages use a CDN.
+  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+  const base = local ? "/lib/three/" : "https://cdn.jsdelivr.net/npm/three@0.170.0/";
+  const im = document.createElement("script");
+  im.type = "importmap";
+  im.textContent = JSON.stringify({ imports: { "three": base + "build/three.module.js", "three/addons/": base + "examples/jsm/" } });
+  document.currentScript.after(im);
+</script>
+<script type="module" src="heart3d.js"></script>
+</body>
+</html>

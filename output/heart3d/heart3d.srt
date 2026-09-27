@@ -1,0 +1,124 @@
+1
+00:00:00,800 --> 00:00:03,852
+This is a real, three-dimensional model of a human
+
+2
+00:00:03,852 --> 00:00:06,477
+heart, built from an open anatomical atlas.
+
+3
+00:00:06,777 --> 00:00:09,773
+Let's explore how it works, from the outside in.
+
+4
+00:00:11,573 --> 00:00:13,221
+At the top are the great vessels.
+
+5
+00:00:13,521 --> 00:00:16,273
+The aorta carries oxygen-rich blood out to the body.
+
+6
+00:00:16,573 --> 00:00:19,940
+The pulmonary trunk carries oxygen-poor blood to the lungs.
+
+7
+00:00:20,240 --> 00:00:24,176
+And the superior vena cava brings blood back from the upper body.
+
+8
+00:00:24,476 --> 00:00:27,250
+The coronary arteries, shown in red, wrap around
+
+9
+00:00:27,250 --> 00:00:29,793
+the surface to feed the heart muscle itself.
+
+10
+00:00:31,593 --> 00:00:33,729
+Now let's make the muscle transparent.
+
+11
+00:00:34,029 --> 00:00:35,666
+Inside are four chambers.
+
+12
+00:00:35,966 --> 00:00:38,543
+On the heart's right side, the right atrium
+
+13
+00:00:38,543 --> 00:00:41,121
+and right ventricle hold oxygen-poor blood.
+
+14
+00:00:41,421 --> 00:00:46,158
+On its left side, the left atrium and left ventricle hold oxygen-rich blood.
+
+15
+00:00:47,958 --> 00:00:50,814
+Four valves keep the blood moving in one direction.
+
+16
+00:00:51,114 --> 00:00:55,537
+Seen from above, the tricuspid and mitral valves open into the ventricles.
+
+17
+00:00:55,837 --> 00:00:59,355
+The pulmonary and aortic valves open into the great arteries.
+
+18
+00:01:01,155 --> 00:01:02,583
+Now, follow the blood.
+
+19
+00:01:02,883 --> 00:01:07,380
+Oxygen-poor blood from the body fills the right atrium, passes the tricuspid valve
+
+20
+00:01:07,380 --> 00:01:12,043
+into the right ventricle, and is pumped through the pulmonary valve toward the lungs.
+
+21
+00:01:12,343 --> 00:01:16,048
+Oxygen-rich blood returns from the lungs through the pulmonary veins
+
+22
+00:01:16,048 --> 00:01:19,644
+into the left atrium, flows through the mitral valve into the left
+
+23
+00:01:19,644 --> 00:01:23,187
+ventricle, and is pumped through the aortic valve into the aorta.
+
+24
+00:01:25,487 --> 00:01:29,934
+With each beat, the atria contract first, topping up the ventricles.
+
+25
+00:01:30,234 --> 00:01:33,236
+Then the ventricles contract, and the valves close
+
+26
+00:01:33,236 --> 00:01:35,818
+in turn, making the familiar lub-dub sound.
+
+27
+00:01:40,618 --> 00:01:42,882
+Slicing through the heart reveals its walls.
+
+28
+00:01:43,182 --> 00:01:46,871
+The left ventricle's wall is about ten millimetres thick, far thicker
+
+29
+00:01:46,871 --> 00:01:50,508
+than the right's, because it must pump blood around the entire body.
+
+30
+00:01:52,808 --> 00:01:55,319
+Everything in this video, from the anatomy
+
+31
+00:01:55,319 --> 00:01:57,951
+model to the voice, is free and open source.
+

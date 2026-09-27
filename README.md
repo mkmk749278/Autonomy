@@ -17,6 +17,12 @@ subscriptions.
 | 5 | The electrical spark | SA node → atria → AV node delay → bundle of His → Purkinje fibres, with the P / QRS / T waves labelled |
 | 6 | By the numbers & recap | 70 bpm, 70 mL, 5 L/min, 100,000 beats/day |
 
+**3D video:** [`output/heart3d/heart3d.mp4`](output/heart3d/heart3d.mp4). *The Heart in 3D* (about 2 min,
+1080p). It is rendered from a **real human heart model** (the BodyParts3D anatomical atlas), not a drawing:
+exterior and coronary arteries → X-ray view of the four chambers → the four valves seen from above →
+blood flowing along paths traced through the actual chamber volumes → heartbeat with *lub-dub* → a
+four-chamber cross-section showing wall thickness.
+
 ---
 
 ## The free toolchain
@@ -70,6 +76,37 @@ FFmpeg: concat → burn captions → loudness-normalise → chapter markers → 
 * `videos/heart/scenes.py`: the script plus the cardiac-cycle model (chamber volume, valve state and ECG as
   functions of beat phase).
 
+## The 3D pipeline
+
+```
+BodyParts3D atlas (CC BY-SA) ──► prepare_model.py ──► assets/heart3d/heart.glb + landmarks.json
+   real CT-derived meshes          voxelise cavities (winding numbers), grow the muscle wall,
+                                   trace blood-flow centrelines, simplify, export glTF
+                                          │
+script.py (narration) ──► Piper ──► timeline.json (exact sentence times)
+                                          │
+web/heart3d.js (three.js) ──► render3d.mjs: headless Chromium, 1 frame at a time, 2 workers
+                                          │
+                        build3d.py: + voice, synthesised heart sounds, captions, chapters ──► heart3d.mp4
+```
+
+```bash
+npm install                                             # three.js + playwright-core (uses the system Chromium)
+.venv/bin/python videos/heart3d/prepare_model.py --bp3d <unzipped partof_BP3D_4.0_obj_99>
+.venv/bin/python build3d.py --preview 30 50             # check one shot
+.venv/bin/python build3d.py                             # full render
+```
+
+* Rendering runs on **CPU only**, using Chromium's software WebGL (SwiftShader), at about 1 s per 1080p frame.
+  A 2-minute video takes roughly an hour on 4 cores. Blender (also free) was benchmarked too: Eevee took
+  about 3.6 s per frame on this CPU and Cycles about 10 s, so it is only worth it for cinematic stills or if
+  you have a GPU.
+* The same scene opened without `?mode=render` is an **interactive 3D viewer** (drag to rotate, with X-ray,
+  blood-flow, heartbeat, label and slice controls). `videos/heart3d/pack_viewer.py` packages it as static files
+  (`web/viewer.html` + model) that you can host free, for example on GitHub Pages.
+* Licensing: the model and anything rendered from it are CC BY-SA 2.1 JP. See
+  [`assets/heart3d/ATTRIBUTION.md`](assets/heart3d/ATTRIBUTION.md).
+
 ## Adding the next system
 
 The respiratory and digestive videos reuse the same studio. Only the diagram and the script change.
@@ -93,7 +130,8 @@ Storyboards ready to build:
 |-------|------|-------|---------------|
 | **1. Done here** | 2D schematic explainer with voice, captions and chapters | ✅ fully | Stylised rather than photorealistic. Every video is code, so it can be edited, translated and re-rendered |
 | 2 | Interactive web version (SVG/Canvas/Three.js) where learners click a valve or slow the heartbeat | ✅ (GitHub Pages hosting) | More front-end work |
-| 3 | 3D anatomical animation: **Blender** (GPL) scripted from Python, with free CC BY-SA anatomy models (BodyParts3D, Z-Anatomy) | ✅ software, ✅ models (keep attribution) | CPU rendering is slow (hours per minute of video). A free Colab/Kaggle GPU session helps but has quotas |
+| **3. Done here** | 3D animation of a real anatomical model (BodyParts3D) rendered with three.js in headless Chromium | ✅ fully | About 30 min of CPU per minute of 1080p video. Share-alike licence. The ventricular wall is reconstructed (the atlas has only fragments) |
+| 3b | Cinematic 3D in **Blender** (Eevee/Cycles) from the same model | ✅ software | 4–10× slower on CPU than the web renderer. A free Colab/Kaggle GPU session helps but has quotas |
 | 4 | Multi-language dubbing: same script, different Piper voice | ✅ | Neural voices can mispronounce medical terms, so check each language with the `PRONOUNCE` map |
 | 5 | Background music | ✅ synthesise it, or use CC0 tracks | Check each track's licence yourself |
 | 6 | AI text-to-video (open-weight models) | ⚠️ weights free, GPU is not | Needs a 12–24 GB GPU. **Anatomy is not reliable**: models invent structures, which is unacceptable for teaching |
