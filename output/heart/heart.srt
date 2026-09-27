@@ -1,0 +1,324 @@
+1
+00:00:00,000 --> 00:00:02,684
+Every minute, your heart pumps about five litres
+
+2
+00:00:02,684 --> 00:00:05,201
+of blood: roughly all the blood in your body.
+
+3
+00:00:05,600 --> 00:00:09,675
+Let's see how this fist-sized muscle does it, one step at a time.
+
+4
+00:00:10,866 --> 00:00:15,511
+We'll look at the heart's two pumps, its chambers and valves, the path that blood
+
+5
+00:00:15,511 --> 00:00:20,212
+takes, what happens in a single beat, and the electrical spark that starts it all.
+
+6
+00:00:21,400 --> 00:00:24,163
+The heart is really two pumps, side by side.
+
+7
+00:00:24,533 --> 00:00:27,442
+The right side receives oxygen-poor blood returning
+
+8
+00:00:27,442 --> 00:00:29,781
+from the body, and pumps it to the lungs.
+
+9
+00:00:30,200 --> 00:00:34,565
+In the lungs, blood drops off carbon dioxide and picks up fresh oxygen.
+
+10
+00:00:34,966 --> 00:00:37,869
+The left side receives this oxygen-rich blood, and
+
+11
+00:00:37,869 --> 00:00:40,829
+pumps it out to every organ and muscle in the body.
+
+12
+00:00:41,233 --> 00:00:44,008
+There, cells use up the oxygen, and the blood
+
+13
+00:00:44,008 --> 00:00:47,154
+returns to the right side, to start the loop again.
+
+14
+00:00:47,566 --> 00:00:50,526
+This is called the double circulation: a short loop through
+
+15
+00:00:50,526 --> 00:00:53,034
+the lungs, and a long loop through the whole body.
+
+16
+00:00:53,466 --> 00:00:55,544
+By the way, blood is always red.
+
+17
+00:00:55,724 --> 00:01:00,008
+Diagrams colour oxygen-poor blood blue, simply to tell the two apart.
+
+18
+00:01:01,230 --> 00:01:03,633
+Inside, the heart has four chambers.
+
+19
+00:01:04,830 --> 00:01:09,439
+The two upper chambers, the atria, are receiving rooms, where blood arrives.
+
+20
+00:01:09,830 --> 00:01:14,067
+The two lower chambers, the ventricles, are the pumps that push blood out.
+
+21
+00:01:14,463 --> 00:01:17,666
+A muscular wall called the septum divides the two
+
+22
+00:01:17,666 --> 00:01:21,197
+sides, so oxygen-rich and oxygen-poor blood never mix.
+
+23
+00:01:21,596 --> 00:01:24,828
+Notice that in diagrams like this, the heart's right side
+
+24
+00:01:24,828 --> 00:01:27,947
+appears on your left, as if you were facing the person.
+
+25
+00:01:29,130 --> 00:01:31,928
+Four one-way valves keep blood moving forward.
+
+26
+00:01:32,108 --> 00:01:36,125
+The tricuspid and mitral valves sit between the atria and the ventricles.
+
+27
+00:01:36,496 --> 00:01:39,445
+The pulmonary and aortic valves guard the exits.
+
+28
+00:01:40,430 --> 00:01:44,549
+And the left ventricle has the thickest wall of all, because it pushes blood
+
+29
+00:01:44,549 --> 00:01:48,615
+around the entire body, at about five times the pressure of the right side.
+
+30
+00:01:49,797 --> 00:01:51,991
+Let's follow a single drop of blood.
+
+31
+00:01:52,363 --> 00:01:56,343
+Oxygen-poor blood returns from the body through two large veins,
+
+32
+00:01:56,343 --> 00:02:00,386
+the superior and inferior vena cava, and enters the right atrium.
+
+33
+00:02:00,763 --> 00:02:04,142
+It passes through the tricuspid valve into the right ventricle.
+
+34
+00:02:04,530 --> 00:02:08,099
+The right ventricle contracts, pushing it through the pulmonary
+
+35
+00:02:08,099 --> 00:02:11,159
+valve, into the pulmonary artery, and on to the lungs.
+
+36
+00:02:11,530 --> 00:02:17,242
+In the lungs, it drops off carbon dioxide and picks up oxygen, turning oxygen-rich.
+
+37
+00:02:17,630 --> 00:02:20,834
+It returns through the pulmonary veins into the left atrium.
+
+38
+00:02:21,230 --> 00:02:23,912
+Then through the mitral valve, into the left ventricle.
+
+39
+00:02:24,297 --> 00:02:28,650
+Finally, the powerful left ventricle squeezes it through the aortic valve into
+
+40
+00:02:28,650 --> 00:02:32,725
+the aorta, the body's largest artery, which carries it to the whole body.
+
+41
+00:02:33,097 --> 00:02:36,475
+Both sides do this at the same time, with every single beat.
+
+42
+00:02:39,197 --> 00:02:43,457
+Each heartbeat is a precisely timed sequence, called the cardiac cycle.
+
+43
+00:02:43,830 --> 00:02:48,026
+First, while the heart relaxes, a phase called diastole, blood flows into
+
+44
+00:02:48,026 --> 00:02:52,108
+the atria, and straight on through the open valves into the ventricles.
+
+45
+00:02:52,497 --> 00:02:57,291
+Next, the atria contract, topping up the ventricles with a final push.
+
+46
+00:02:57,663 --> 00:02:59,428
+Then the ventricles contract.
+
+47
+00:02:59,608 --> 00:03:00,850
+This is systole.
+
+48
+00:03:01,030 --> 00:03:03,952
+The rising pressure snaps the tricuspid and mitral
+
+49
+00:03:03,952 --> 00:03:06,406
+valves shut, making the first heart sound.
+
+50
+00:03:07,897 --> 00:03:10,824
+The pulmonary and aortic valves are forced open, and
+
+51
+00:03:10,824 --> 00:03:13,469
+blood rushes out, to the lungs and to the body.
+
+52
+00:03:13,863 --> 00:03:17,713
+As the ventricles relax, the pressure drops, and the pulmonary
+
+53
+00:03:17,713 --> 00:03:21,003
+and aortic valves snap shut, making the second sound.
+
+54
+00:03:26,097 --> 00:03:30,114
+At rest, this happens around sixty to one hundred times every minute.
+
+55
+00:03:31,297 --> 00:03:33,386
+What keeps this rhythm so steady?
+
+56
+00:03:33,566 --> 00:03:36,120
+The heart has its own built-in electrical system.
+
+57
+00:03:36,497 --> 00:03:39,181
+Each beat starts in the sinoatrial node, the heart's
+
+58
+00:03:39,181 --> 00:03:41,814
+natural pacemaker, in the wall of the right atrium.
+
+59
+00:03:42,197 --> 00:03:46,202
+Its signal spreads across both atria, making them contract.
+
+60
+00:03:46,597 --> 00:03:50,546
+The signal then reaches the atrioventricular node, which holds it back
+
+61
+00:03:50,546 --> 00:03:54,271
+for about a tenth of a second, giving the ventricles time to fill.
+
+62
+00:03:54,663 --> 00:03:58,034
+Next, it races down the bundle of His through the septum, and
+
+63
+00:03:58,034 --> 00:04:01,570
+spreads out along the Purkinje fibres, so the ventricles squeeze
+
+64
+00:04:01,570 --> 00:04:04,775
+from the bottom up, like squeezing toothpaste from a tube.
+
+65
+00:04:05,163 --> 00:04:08,542
+An ECG records this electrical activity through the skin.
+
+66
+00:04:08,930 --> 00:04:11,136
+The P wave is the atria firing.
+
+67
+00:04:11,530 --> 00:04:14,537
+The QRS complex is the ventricles firing.
+
+68
+00:04:14,930 --> 00:04:18,691
+And the T wave is the ventricles recharging, ready for the next beat.
+
+69
+00:04:19,863 --> 00:04:21,523
+Let's put some numbers on it.
+
+70
+00:04:21,703 --> 00:04:24,512
+A resting heart beats about seventy times a minute.
+
+71
+00:04:24,896 --> 00:04:28,205
+Each beat pumps about seventy millilitres from each ventricle.
+
+72
+00:04:28,596 --> 00:04:31,231
+That adds up to about five litres every minute.
+
+73
+00:04:31,629 --> 00:04:34,596
+And around one hundred thousand beats, moving some
+
+74
+00:04:34,596 --> 00:04:37,504
+seven thousand litres of blood, every single day.
+
+75
+00:04:38,596 --> 00:04:39,409
+To recap.
+
+76
+00:04:39,796 --> 00:04:42,199
+The right side pumps blood to the lungs.
+
+77
+00:04:42,396 --> 00:04:44,439
+The left side pumps it to the body.
+
+78
+00:04:44,629 --> 00:04:46,870
+Four valves keep it flowing one way.
+
+79
+00:04:47,063 --> 00:04:49,744
+And an electrical signal times every beat.
+
+80
+00:04:51,029 --> 00:04:54,512
+This video was made entirely with free and open-source software.
+
+81
+00:04:54,692 --> 00:04:56,109
+Thanks for watching.
+
